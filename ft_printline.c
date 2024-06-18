@@ -6,19 +6,19 @@
 /*   By: aelison <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 09:42:24 by aelison           #+#    #+#             */
-/*   Updated: 2024/06/12 14:43:53 by aelison          ###   ########.fr       */
+/*   Updated: 2024/06/18 09:22:27 by aelison          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_isometric(t_point *pts, int zoom, int off_x, int off_y)
+void	ft_isometric(t_point *pts, double zoom, int off_x, int off_y)
 {
 	int	tmp;
 
 	tmp = pts->x;
-	pts->x = ((tmp - pts->y) * cos(5 * M_PI / 6)) * zoom;
-	pts->y = ((tmp + pts->y) * sin(M_PI / 6) - pts->z) * zoom;
+	pts->x = ((tmp - pts->y) * cos((5 * M_PI / 6))) * zoom;
+	pts->y = ((tmp + pts->y) * sin((M_PI / 6)) - pts->z) * zoom;
 	pts->x += off_x;
 	pts->y += off_y;
 }

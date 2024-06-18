@@ -6,7 +6,7 @@
 /*   By: aelison <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 15:14:15 by aelison           #+#    #+#             */
-/*   Updated: 2024/06/11 14:53:48 by aelison          ###   ########.fr       */
+/*   Updated: 2024/06/18 09:44:28 by aelison          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ typedef struct s_line
 	int	choice;
 }	t_line;
 
-typedef struct point
+typedef struct s_point
 {
 	int				x;
 	int				y;
 	int				z;
 	int				color;
-	struct point	*next;
-	struct point	*bottom;
-	struct point	*last;
+	struct s_point	*next;
+	struct s_point	*bottom;
+	struct s_point	*last;
 }	t_point;
 
-typedef struct positions
+typedef struct s_positions
 {
 	int		width;
 	int		height;
-	int		zoom;
+	double	zoom;
 	int		off_x;
 	int		off_y;
 	int		total_ligne;
@@ -88,6 +88,7 @@ void	ft_free_all(t_mlx *data);
 void	ft_drawline(t_mlx *img, t_point *pts);
 void	ft_center_pts(t_positions *pts);
 
+void	ft_img_init(t_mlx *data, int x, int y);
 void	ft_init(t_mlx *data, char *title, char *str);
 void	ft_init_zoom(t_mlx *data);
 void	ft_add_pts(t_point **pts, t_point *elem);
@@ -95,4 +96,10 @@ void	ft_free_pts(t_point *pts);
 void	ft_free_positions(t_positions *p);
 
 t_point	*ft_create_pts(int x, int y, int z, int color);
+
+void	ft_apply_o(t_point **pt, t_point *o);
+void	ft_change_x(t_point **pt, int inc_x);
+void	ft_change_y(t_point **pt, int inc_y);
+void	ft_change_z(t_point **pt, int inc_z);
+void	ft_print_pts(t_point *p);
 #endif

@@ -6,7 +6,7 @@
 /*   By: aelison <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:09:18 by aelison           #+#    #+#             */
-/*   Updated: 2024/06/12 14:04:16 by aelison          ###   ########.fr       */
+/*   Updated: 2024/06/18 08:13:50 by aelison          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	ft_init_zoom(t_mlx *data)
 {
 	int		border;
 	int		max;
-	int		zoom;
+	double	zoom;
 
 	border = data->p->height - 500;
 	if (data->p->total_column > data->p->total_ligne)
 		max = data->p->total_column;
 	else
 		max = data->p->total_ligne;
-	zoom = (border / (max + data->p->z_max));
+	zoom = ((double)border / (max + data->p->z_max));
 	if (zoom == 0)
-		zoom += 1;
+		zoom += 1.0;
 	data->p->zoom = zoom;
 }
 

@@ -14,6 +14,7 @@ SRC = main.c \
 	  ft_printline.c \
 	  ft_colors.c \
 	  ft_new_col.c \
+	  ft_origine.c \
 	  ./get_next_line/get_next_line.c \
 	  ./get_next_line/get_next_line_utils.c \
 
